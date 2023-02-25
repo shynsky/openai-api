@@ -19,8 +19,8 @@ const Home: NextPage = () => {
       })
       .then((res) => res.json())
       .then((data) => setResponse(data.message))
-    } catch (error:unknown) {
-      console.error(error.message)
+    } catch (error) {
+      console.error(error)
     }
   }
 
