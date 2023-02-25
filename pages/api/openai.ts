@@ -29,6 +29,4 @@ export default async function handler (
       res.status(200).json({ message: response.data.choices[0].text })
     }
   }
-  console.log(response.data);
-  res.status(200).json({ message: 'John Doe' })
 }
