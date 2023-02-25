@@ -9,15 +9,19 @@ const Home: NextPage = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch('/api/openai', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({message})
-    })
-    .then((res) => res.json())
-    .then((data) => setResponse(data.message))
+    try {
+      fetch('/api/openai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({message})
+      })
+      .then((res) => res.json())
+      .then((data) => setResponse(data.message))
+    } catch (error:unknown) {
+      console.error(error.message)
+    }
   }
 
   return (
